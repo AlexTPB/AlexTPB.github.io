@@ -31,7 +31,7 @@
   margin: 0;
   border-radius: var(--server-roundness, 50%);
   background: transparent;
-  border: 0px solid transparent;
+  border: 1px solid transparent;
   box-shadow: none;
   transform: none !important;
   transition: var(--transition);
