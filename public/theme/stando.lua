@@ -1975,44 +1975,44 @@ mouse.KeyDown:connect(function(key, IsTyping)
 end)
 
 uis.InputBegan:Connect(function(Input, IsTyping)
-    if Input.KeyCode == Enum.KeyCode.KeypadZero then
+    if Input.KeyCode == Enum.KeyCode.Zero then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         rs.Damage11Sans:FireServer(hrp.Parent.Humanoid, hrp.Parent.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 0,
             "rbxassetid://2210254291", 8.7, 10)
-    elseif Input.KeyCode == Enum.KeyCode.KeypadOne then
+    elseif Input.KeyCode == Enum.KeyCode.One then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 7760813336, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadTwo then
+    elseif Input.KeyCode == Enum.KeyCode.Two then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 4910368846, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadThree then
+    elseif Input.KeyCode == Enum.KeyCode.Three then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 3072042975, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadFour then
+    elseif Input.KeyCode == Enum.KeyCode.Four then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 142805148, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadFive then
+    elseif Input.KeyCode == Enum.KeyCode.Five then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 8407851751, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadSix then
+    elseif Input.KeyCode == Enum.KeyCode.Six then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 5257196749, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadSeven then
+    elseif Input.KeyCode == Enum.KeyCode.Seven then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 6660458695, ["Pitch"] = 1.1, ["Volume"] = math.huge, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadEight then
+    elseif Input.KeyCode == Enum.KeyCode.Eight then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 7280017311, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
-    elseif Input.KeyCode == Enum.KeyCode.KeypadNine then
+    elseif Input.KeyCode == Enum.KeyCode.Nine then
         if IsTyping or death == true then return end
         if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then return end
         MainSoundSystem:Execute({ ["Action"] = "Create", ["Id"] = 4316136477, ["Volume"] = 500, ["Loop"] = false, ["Cooldown"] = true })
