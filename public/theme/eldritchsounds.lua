@@ -1,3 +1,4 @@
+local rser = game:GetService("RunService")
 local death = false
 
 local MainSoundSystem = {
