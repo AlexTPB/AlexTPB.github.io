@@ -623,8 +623,6 @@ function Library:Create(Name, Icon)
 				assert(typeof(Name) == "string", "Expected String, got ".. tostring(typeof(Name)))
 				assert(typeof(Function) == "function", "Expected Function, got ".. tostring(typeof(Function)))
 
-				Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
-
 				local Button = Instance.new("Frame")
 				local TextLabel = Instance.new("TextLabel")
 				local ImageButton = Instance.new("ImageButton")
@@ -677,8 +675,6 @@ function Library:Create(Name, Icon)
 				ImageButton.Activated:Connect(function()
 					Function()
 				end)
-
-				Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
 
 				return Button
 			end
@@ -788,8 +784,6 @@ function Library:Create(Name, Icon)
 
 					Function(ToggleEnabled)
 				end)
-
-				Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
 
 				return Toggle
 			end
@@ -920,7 +914,7 @@ function Library:Create(Name, Icon)
 
 				DropdownButton.Activated:Connect(function()
 					if DropdownList.Size.Y.Offset == 0 then return end
-					
+
 					DropdownList.Visible = not DropdownList.Visible
 				end)
 
@@ -930,7 +924,7 @@ function Library:Create(Name, Icon)
 							existingOption:Destroy()
 						end
 					end
-					
+
 					for i, option in Options do
 						local Option = Instance.new("TextButton")
 						local TextLabel = Instance.new("TextLabel")
@@ -968,15 +962,13 @@ function Library:Create(Name, Icon)
 							Function(option)
 						end)
 					end
-					
+
 					DropdownList.Size = UDim2.new(DropdownList.Size.X.Scale, 0, 0, math.clamp(DropdownList_UIListLayout.AbsoluteContentSize.Y, 0, 82))
 					DropdownList.CanvasSize = UDim2.new(0, 0, 0, DropdownList_UIListLayout.AbsoluteContentSize.Y)
 					DropdownList.Position = UDim2.new(0, 0, 0, math.round(DropdownList.Size.Y.Offset / 10))
 				end
-				
-				xDropdown:UpdateDropdown()
 
-				Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
+				xDropdown:UpdateDropdown()
 
 				return xDropdown
 			end
@@ -1113,24 +1105,20 @@ function Library:Create(Name, Icon)
 					else
 						SliderValue.Text = 0
 					end
-					
+
 					if tonumber(SliderValue.Text) < Min then
 						SliderValue.Text = Min
 					elseif tonumber(SliderValue.Text) > Max then
 						SliderValue.Text = Max
 					end
-					
+
 					local Pos = UDim2.new((tonumber(SliderValue.Text) or 0) / Max, 0, Knob.Position.Y.Scale, 0)
 					Knob.Position = Pos
 					Function(tonumber(SliderValue.Text) or 0)
 				end)
 
-				Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
-
 				return xSlider
 			end
-
-			Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
 
 			return xSection
 		end
@@ -1154,8 +1142,12 @@ function Library:Create(Name, Icon)
 			Page.Visible = true
 		end
 
-		Tabs.CanvasSize = UDim2.new(0, 0, 0, Tabs_UIListLayout.AbsoluteContentSize.Y)
-		Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
+		Tabs_UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+			Tabs.CanvasSize = UDim2.new(0, 0, 0, Tabs_UIListLayout.AbsoluteContentSize.Y)
+		end)
+		Page_UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+			Page.CanvasSize = UDim2.new(0, 0, 0, Page_UIListLayout.AbsoluteContentSize.Y + 50)
+		end)
 
 		return xTab
 	end
@@ -1197,7 +1189,6 @@ function Library:Create(Name, Icon)
 			for _, Tab in Tabs:GetChildren() do
 				if Tab:IsA("ImageButton") then
 					Tab.Visible = string.find(string.lower(Tab["Tab_Name"].Text), string.lower(SearchBox.Text), 1, true) and true or false
-					Tabs.CanvasSize = UDim2.new(0, 0, 0, Tabs_UIListLayout.AbsoluteContentSize.Y)
 				end
 			end
 		end)
