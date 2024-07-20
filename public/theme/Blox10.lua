@@ -328,7 +328,6 @@ function Library:Create(Name, Icon)
 		repeat task.wait() until not BLOXUI:FindFirstChild("Notification")
 
 		local xNotification = {}
-
 		local Notification = Instance.new("Frame")
 		local Notification_Bar = Instance.new("Frame")
 		local Notification_Bar_Icon = Instance.new("ImageLabel")
@@ -962,10 +961,10 @@ function Library:Create(Name, Icon)
 							Function(option)
 						end)
 					end
-
-					DropdownList.Size = UDim2.new(DropdownList.Size.X.Scale, 0, 0, math.clamp(DropdownList_UIListLayout.AbsoluteContentSize.Y, 0, 82))
-					DropdownList.CanvasSize = UDim2.new(0, 0, 0, DropdownList_UIListLayout.AbsoluteContentSize.Y)
-					DropdownList.Position = UDim2.new(0, 0, 0, math.round(DropdownList.Size.Y.Offset / 10))
+					
+					TweenService:Create(DropdownList, TweenInfo.new(0.2), {Size = UDim2.new(DropdownList.Size.X.Scale, 0, 0, math.clamp(DropdownList_UIListLayout.AbsoluteContentSize.Y, 0, 82))}):Play()
+					TweenService:Create(DropdownList, TweenInfo.new(0.2), {CanvasSize = UDim2.new(0, 0, 0, DropdownList_UIListLayout.AbsoluteContentSize.Y)}):Play()
+					TweenService:Create(DropdownList, TweenInfo.new(0.2), {Position = UDim2.new(0, 0, 0, math.round(DropdownList.Size.Y.Offset / 10))}):Play()
 				end
 
 				xDropdown:UpdateDropdown()
@@ -1184,8 +1183,6 @@ function Library:Create(Name, Icon)
 	local SearchInput = nil
 	SearchBox.Focused:Connect(function()
 		SearchInput = SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
-			print("Typed!")
-
 			for _, Tab in Tabs:GetChildren() do
 				if Tab:IsA("ImageButton") then
 					Tab.Visible = string.find(string.lower(Tab["Tab_Name"].Text), string.lower(SearchBox.Text), 1, true) and true or false
